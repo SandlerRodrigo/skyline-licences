@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { ConfigModule, ConfigService } from '@nestjs/config';
-import { LicencaModule } from './modules/licenca/licenca.module';  // Importar o módulo de licença
+import { LicencaModule } from './modules/licenca/licenca.module';
 
 @Module({
   imports: [
@@ -21,7 +21,7 @@ import { LicencaModule } from './modules/licenca/licenca.module';  // Importar o
       }),
       inject: [ConfigService],
     }),
-    LicencaModule,  // Certifique-se de que o módulo está importado
+    LicencaModule,
   ],
 })
 export class AppModule {}

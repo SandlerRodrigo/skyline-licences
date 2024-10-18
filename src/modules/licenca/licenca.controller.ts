@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Body, Param, Patch } from '@nestjs/common';
 import { LicencaService } from './licenca.service';
-import { CreateLicencaDto } from './create-licenca.dto'; // Import the DTO
+import { CreateLicencaDto } from './create-licenca.dto';
 
 @Controller('licencas')
 export class LicencaController {

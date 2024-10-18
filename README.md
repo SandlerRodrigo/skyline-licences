@@ -48,7 +48,7 @@ npm install
 
 ### 3. Configuração do Banco de Dados
 
-Este projeto utiliza o PostgreSQL. Você precisará criar uma base de dados localmente ou utilizar um serviço de hospedagem de banco de dados como o Neon, AWS RDS ou outro.
+Este projeto utiliza o PostgreSQL. Você precisará criar uma base de dados localmente ou utilizar um serviço de hospedagem de banco de dados como o Neon, AWS RDS ou outro. Neon é MUITO fácil de configurar Chico vai lá seu preguiçoso.
 
 #### 3.1. Criar o Banco de Dados
 

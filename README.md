@@ -1,99 +1,170 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+# Skyline Licences API
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Descrição
 
-## Description
+Este é um projeto de API para autenticação de licenças de software. A licença está atrelada a um único dispositivo, identificado pelo endereço MAC da máquina, e possui uma data de expiração. Esta API permite:
+- Criar uma nova licença.
+- Cancelar ou ativar licenças existentes.
+- Consultar o status de uma licença com base no endereço MAC.
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Funcionalidades Principais
 
-## Project setup
+- **Criação de Licenças**: Atribui uma licença a um dispositivo específico usando seu endereço MAC e chave.
+- **Consulta de Licenças**: Verifica a validade de uma licença usando o endereço MAC.
+- **Ativação/Cancelamento**: Ativa ou cancela licenças, alterando o campo de validade.
 
-```bash
-$ yarn install
-```
+## Tecnologias Utilizadas
 
-## Compile and run the project
+- **Node.js** com **NestJS** para a API backend.
+- **PostgreSQL** como banco de dados relacional.
+- **TypeORM** para mapeamento objeto-relacional (ORM).
+- **dotenv** para gestão de variáveis de ambiente.
 
-```bash
-# development
-$ yarn run start
+## Pré-requisitos
 
-# watch mode
-$ yarn run start:dev
+Certifique-se de que você tem as seguintes ferramentas instaladas:
 
-# production mode
-$ yarn run start:prod
-```
+- **Node.js** (versão 14.x ou superior)
+- **PostgreSQL** (versão 12.x ou superior)
+- **Git** para clonar o repositório
 
-## Run tests
+## Instalação e Configuração
+
+### 1. Clone o repositório
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+git clone https://github.com/seu-usuario/skyline-licences.git
+cd skyline-licences
 ```
 
-## Deployment
+### 2. Instale as dependências
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Instale todas as dependências do projeto com o seguinte comando:
 
 ```bash
-$ yarn install -g mau
-$ mau deploy
+npm install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Configuração do Banco de Dados
 
-## Resources
+Este projeto utiliza o PostgreSQL. Você precisará criar uma base de dados localmente ou utilizar um serviço de hospedagem de banco de dados como o Neon, AWS RDS ou outro.
 
-Check out a few resources that may come in handy when working with NestJS:
+#### 3.1. Criar o Banco de Dados
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+No seu PostgreSQL, crie o banco de dados:
 
-## Support
+```sql
+CREATE DATABASE skyline_licences;
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+#### 3.2. Configuração da Tabela
 
-## Stay in touch
+Crie a tabela `licenca` dentro do banco de dados. Use a seguinte query SQL:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+```sql
+CREATE TABLE licenca (
+    id SERIAL PRIMARY KEY,
+    chave VARCHAR(255) UNIQUE NOT NULL,
+    mac_address VARCHAR(17) UNIQUE NOT NULL,
+    validade BOOLEAN DEFAULT TRUE,
+    data_expiracao TIMESTAMP NOT NULL
+);
+```
 
-## License
+#### 3.3. Configuração de Variáveis de Ambiente
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+Crie um arquivo `.env` na raiz do projeto com as seguintes configurações:
+
+```env
+DATABASE_HOST=seu-host
+DATABASE_PORT=5432
+DATABASE_USERNAME=seu-usuario
+DATABASE_PASSWORD=sua-senha
+DATABASE_NAME=skyline_licences
+```
+
+Altere os valores acima de acordo com as suas credenciais do PostgreSQL.
+
+### 4. Compilação e Execução
+
+Para iniciar o servidor de desenvolvimento:
+
+```bash
+npm run start
+```
+
+Isso iniciará o servidor na porta `3000` por padrão.
+
+## Rotas da API
+
+### 1. Criar uma Licença
+
+- **Rota**: `POST /licencas`
+- **O que espera (JSON)**:
+  - `chave`: String (obrigatório)
+  - `mac_address`: String no formato `XX:XX:XX:XX:XX:XX` (obrigatório)
+  - `data_expiracao`: Data no formato ISO (obrigatório)
+  
+- **O que responde**:
+  - Em caso de sucesso: Detalhes da licença criada.
+  - Em caso de erro: Mensagem de erro apropriada.
+
+### 2. Consultar uma Licença por MAC Address
+
+- **Rota**: `GET /licencas/:mac_address`
+- **O que espera**:
+  - `mac_address`: O endereço MAC da licença (obrigatório)
+
+- **O que responde**:
+  - Em caso de sucesso: Detalhes da licença correspondente.
+  - Em caso de erro: Mensagem de erro apropriada ou "Licença não encontrada".
+
+### 3. Cancelar uma Licença
+
+- **Rota**: `PATCH /licencas/cancelar/:mac_address`
+- **O que espera**:
+  - `mac_address`: O endereço MAC da licença a ser cancelada (obrigatório)
+
+- **O que responde**:
+  - Em caso de sucesso: Mensagem de sucesso e detalhes da licença cancelada.
+  - Em caso de erro: Mensagem de erro apropriada.
+
+### 4. Ativar uma Licença
+
+- **Rota**: `PATCH /licencas/ativar/:mac_address`
+- **O que espera**:
+  - `mac_address`: O endereço MAC da licença a ser ativada (obrigatório)
+
+- **O que responde**:
+  - Em caso de sucesso: Mensagem de sucesso e detalhes da licença ativada.
+  - Em caso de erro: Mensagem de erro apropriada.
+
+## Testando as Rotas no Postman
+
+Todas as rotas foram configuradas em um arquivo Postman para facilitar os testes. Você pode importar esse arquivo diretamente no Postman para testar as funcionalidades da API.
+
+### Como usar:
+1. Baixe o arquivo JSON para o Postman.
+2. No Postman, vá até **File > Import** e selecione o arquivo baixado.
+3. Todas as rotas estarão disponíveis para testes.
+
+[Baixar arquivo Postman](./SkylineLicences.postman_collection.json)
+
+## Estrutura do Projeto
+
+O projeto segue uma estrutura modularizada no NestJS. Aqui está um resumo das principais pastas e arquivos:
+
+```
+skyline-licences/
+├── src/
+│   ├── app.module.ts           # Módulo raiz do projeto
+│   ├── licenca/
+│   │   ├── licenca.controller.ts  # Controlador das rotas de licença
+│   │   ├── licenca.service.ts     # Lógica de negócios das licenças
+│   │   ├── licenca.entity.ts      # Definição da entidade Licença
+│   │   └── licenca.module.ts      # Módulo da Licença
+├── .env                         # Arquivo de configuração de variáveis de ambiente
+├── package.json                 # Dependências e scripts do projeto
+├── README.md                    # Documentação do projeto
+```
